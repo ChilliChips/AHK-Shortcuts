@@ -90,3 +90,20 @@ dimmDown() {
         HttpRequest("PUT", url[A_Index], dimm)
     }
 }
+
+/*ChangeColor(midiEvent) {
+    velocity := midiEvent.Velocity
+
+    red := HSBtoRGB(hue, saturation, brightness)
+
+    while velocity > 20
+        velocity := GetKeyVelocity(midiEvent)
+        if (midiEvent.Note = 46)
+            red := red + 1
+        else if (midiEvent.Note = 47)
+            green := green + 1
+        else if (midiEvent.Note = 48)
+            blue := blue + 1
+        sleep 100
+
+}*/

@@ -132,3 +132,7 @@ RGBtoHSB(red, green, blue) {
         b: Round(brightness * 100) 
     }
 }
+
+HSBtoRGB(hue, saturation, brightness) {
+    ; Conversion of HSB to RGB
+}
