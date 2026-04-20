@@ -111,7 +111,7 @@ changeRed(velocity) {
     }
 }
 
-ChangeColor(midiEvent) {
+/*ChangeColor(midiEvent) {
     velocity := midiEvent.Velocity
 
     HSB := getHSB()
@@ -133,3 +133,4 @@ ChangeColor(midiEvent) {
         sleep 100
 
 }
+*/
