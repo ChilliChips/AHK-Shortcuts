@@ -94,3 +94,45 @@ discordStream(screen){
         return
     }
 }
+
+
+RGBtoHSB(red, green, blue) {
+    red := red /255
+    green := green / 255
+    blue := blue / 255
+
+    max := Max(red, blue, green)
+    min := Min(red, blue, green)
+    delta := max - min
+
+    ; Brightness Value
+    brightness := max
+
+    ; Saturation Value
+    if (max != 0)
+        saturation := delta / max
+    else
+        saturation := 0
+
+    ; Hue Value
+    if (delta == 0)
+        hue := 0
+    else
+        if (max == red)
+            hue := (green - blue) / delta + (green < blue ? 6 : 0)
+        else if (max == green)
+            hue := (blue - red) / delta + 2
+        else
+            hue := (red - green) / delta + 4
+        hue := hue / 6
+
+    return { 
+        h: Round(hue * 360), 
+        s: Round(saturation * 100), 
+        b: Round(brightness * 100) 
+    }
+}
+
+HSBtoRGB(hue, saturation, brightness) {
+    ; Conversion of HSB to RGB
+}

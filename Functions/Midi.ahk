@@ -77,6 +77,11 @@ Setup() {
     LightingSetup()
 }
 
+GetKeyVelocity(midiEvent) {
+    velocity := midiEvent.Velocity
+    return velocity
+}
+
 PadOff() {                                  ; Turns of all Lighting
     loop {
         if (A_Index = 65)
@@ -98,3 +103,4 @@ AllRed() {                                  ; Turns of all Lighting
         
     }
 }
+
