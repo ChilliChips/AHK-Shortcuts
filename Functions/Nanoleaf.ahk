@@ -91,9 +91,17 @@ dimmDown() {
     }
 }
 
-getColor() {
-    effect := HttpRequest("PUT", url[1])
-    match := RegExMatch(effect, '"write":{"command":"request", "animName":"RGB"}', &m)      ; Scene RGB erstellen
+getHSB() {
+    response := HttpRequest("PUT", url[1])
+    hue := RegExMatch(Hue, '"hue":\{"value":(\d+)', &m)
+
+    response := HttpRequest("GET", url[1])
+    saturation := RegExMatch(response, '"sat":\{"value":(\d+)', &m)
+
+    response := HttpRequest("GET", url[1])
+    brightness := RegExMatch(response, '"brightness":\{"value":(\d+)', &m)
+
+    return [hue, saturation, brightness]
 }
 
 changeRed(velocity) {
@@ -102,8 +110,15 @@ changeRed(velocity) {
         
     }
 }
-/*ChangeColor(midiEvent) {
+
+ChangeColor(midiEvent) {
     velocity := midiEvent.Velocity
+
+    HSB := getHSB()
+
+    hue := HSB[1]
+    saturation := HSB[2]
+    brightness := HSB[3]
 
     red := HSBtoRGB(hue, saturation, brightness)
 
@@ -117,4 +132,4 @@ changeRed(velocity) {
             blue := blue + 1
         sleep 100
 
-}*/
+}
