@@ -90,3 +90,15 @@ dimmDown() {
         HttpRequest("PUT", url[A_Index], dimm)
     }
 }
+
+getColor() {
+    effect := HttpRequest("PUT", url[1])
+    match := RegExMatch(effect, '"write":{"command":"request", "animName":"RGB"}', &m)      ; Scene RGB erstellen
+}
+
+changeRed(velocity) {
+
+    while(velocity > 20) {
+        
+    }
+}

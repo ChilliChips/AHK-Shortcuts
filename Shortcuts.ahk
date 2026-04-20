@@ -152,6 +152,7 @@ SetTitleMatchMode 2             ; window title can contain certain string inside
 
 MidiInNoteOn(midiEvent){
     note := midiEvent.NoteNumber
+    velocity := midiEvent.Velocity
     OnKeyPress(note)
 }
 
