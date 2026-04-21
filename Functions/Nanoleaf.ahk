@@ -104,15 +104,10 @@ getHSB() {
     return [hue, saturation, brightness]
 }
 
-changeRed(velocity) {
 
-    while(velocity > 20) {
-        
-    }
-}
-
-/*ChangeColor(midiEvent) {
+ChangeColor(midiEvent) {
     velocity := midiEvent.Velocity
+    note := midiEvent.NoteNumber
 
     HSB := getHSB()
 
@@ -120,17 +115,27 @@ changeRed(velocity) {
     saturation := HSB[2]
     brightness := HSB[3]
 
-    red := HSBtoRGB(hue, saturation, brightness)
+    RGB := HSBtoRGB(hue, saturation, brightness)
+    
+    red := RGB[1]
+    green := RGB[2]
+    blue := RGB[3]
 
     while velocity > 20
-        velocity := GetKeyVelocity(midiEvent)
-        if (midiEvent.Note = 46)
-            red := red + 1
-        else if (midiEvent.Note = 47)
-            green := green + 1
-        else if (midiEvent.Note = 48)
-            blue := blue + 1
-        sleep 100
 
+        switch note {
+
+            case 46:
+                red := red + 1
+                sleep 100
+            case 47:
+                green := HSBtoRGB(hue, saturation, brightness)
+                green := green + 1
+                sleep 100
+            case 48:
+                blue := HSBtoRGB(hue, saturation, brightness)
+                blue := blue + 1
+                sleep 100
+
+        }
 }
-*/
