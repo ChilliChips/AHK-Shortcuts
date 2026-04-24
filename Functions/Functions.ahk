@@ -133,7 +133,7 @@ RGBtoHSB(red, green, blue) {
     }
 }
 
-HSBtoRGB() {            ; Conversion of HSB to RGB
+HSBtoRGB(hue, saturation, brightness) {            ; Conversion of HSB to RGB
     HSB := getHSB()
 
     hue := HSB[1]
