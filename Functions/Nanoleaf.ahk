@@ -109,19 +109,13 @@ ChangeColor(midiEvent) {
     velocity := midiEvent.Velocity
     note := midiEvent.NoteNumber
 
-    HSB := getHSB()
-
-    hue := HSB[1]
-    saturation := HSB[2]
-    brightness := HSB[3]
-
-    RGB := HSBtoRGB(hue, saturation, brightness)
+    RGB := HSBtoRGB()
     
     red := RGB[1]
     green := RGB[2]
     blue := RGB[3]
 
-    while velocity > 20
+    while velocity > 20 {
 
         switch note {
 
@@ -129,13 +123,25 @@ ChangeColor(midiEvent) {
                 red := red + 1
                 sleep 100
             case 47:
-                green := HSBtoRGB(hue, saturation, brightness)
                 green := green + 1
                 sleep 100
             case 48:
-                blue := HSBtoRGB(hue, saturation, brightness)
                 blue := blue + 1
                 sleep 100
 
         }
+        velocity := midiEvent.Velocity          ; Wie bekomme ich den aktuellen Velocity Wert?
+    }
+
+    HSB := RGBtoHSB(red, green, blue)
+
+    hue := '{"brightness":{"value":' HSB[1] '}}'
+    saturation := '{"brightness":{"value":' HSB[2] '}}'
+    brightness := '{"brightness":{"value":' HSB[3] '}}'
+
+    loop 4 {
+        HttpRequest("PUT", url[A_Index], hue)
+        HttpRequest("PUT", url[A_Index], saturation)
+        HttpRequest("PUT", url[A_Index], brightness)
+    }
 }
