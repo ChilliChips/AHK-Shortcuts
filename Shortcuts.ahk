@@ -168,6 +168,10 @@ MidiInNoteOn13(midiEvent) {             ; Spotify
     run "https://open.spotify.com"
 }
 
+MidiInNoteOn14(midiEvent) {
+    SoundSetMute(-1, , "Eingang (Realtek(R) Audio)")
+}
+
 MidiInNoteOn18(midiEvent) {             ; Launchpad Lights off
     PadOff()
 }
