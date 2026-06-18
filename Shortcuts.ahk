@@ -7,6 +7,7 @@
 #Include Functions\Functions.ahk
 #Include Functions\Midi.ahk
 #Include Functions\Nanoleaf.ahk
+#Include Functions\Gui.ahk
 ;#Include Functions\LaTeX.ahk
 
 ; MIDI Setup
@@ -144,6 +145,10 @@ SetTitleMatchMode 2             ; window title can contain certain string inside
 
     Esc:: {
         Reload
+    }
+
+    AppsKey:: {
+        MyGui.Show()          ; Opens GUI with Hotkey Descriptions
     }
 
 #HotIf 
