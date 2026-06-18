@@ -148,7 +148,11 @@ SetTitleMatchMode 2             ; window title can contain certain string inside
     }
 
     AppsKey:: {
-        MyGui.Show()          ; Opens GUI with Hotkey Descriptions
+        RunGui()          ; Opens GUI with Hotkey Descriptions
+    }
+
+    +AppsKey:: {
+        MyGui.Hide()
     }
 
 #HotIf 
