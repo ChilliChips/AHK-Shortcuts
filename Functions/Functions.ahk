@@ -3,7 +3,7 @@
 ; Github Desktop commit
 
 gitcommit() {
-    if(!WinExist("Github Desktop")) {
+    if(!WinExist("ahk_exe GitHubDesktop.exe")) {
         return
     }
 
@@ -16,7 +16,7 @@ gitcommit() {
     coordY_Summary := 475           ; Coords of Summary Textbox
     coordY_Commit := 630            ; Coords of Commit Button
 
-    WinActivate("GitHub Desktop")
+    WinActivate("ahk_exe GitHubDesktop.exe")
 
     BlockInput("MouseMove")
     MouseGetPos(&mouseX, &mouseY)
