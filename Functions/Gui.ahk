@@ -31,15 +31,15 @@ RunGui() {
     MyGui.Show("Hide")
     CoordMode("Mouse", "Screen")
     MouseGetPos(&MouseX)
-    if(MouseX <= 1920) {
-        Screen := 1
-    } else if(MouseX <= 3840) {
-        Screen := 2
-    } else {
-        Screen := 3
+    
+    loop MonitorGetCount() {
+        MonitorGetWorkArea(A_Index, &Left, &Top, &Right, &Bottom)
+        if(MouseX >= Left && MouseX <= Right) {
+            Screen := A_Index
+            break
+        }
     }
 
-    MonitorGetWorkArea(Screen, &Left, &Top, &Right, &Bottom)
     MyGui.GetPos(,, &GuiWidth)
             
     TargetX := Right - GuiWidth - 10
