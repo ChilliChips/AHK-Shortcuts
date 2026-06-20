@@ -29,17 +29,21 @@ MatlabKeyList.ModifyCol(2, "Auto")
 
 RunGui() {
     MyGui.Show("Hide")
-    MouseGetPos(&MouseX, &MouseY)
-    Loop MonitorGetCount() {
-        MonitorGetWorkArea(A_Index, &Left, &Top, &Right, &Bottom)
-        if (MouseX >= Left && MouseX <= Right) {
-            MyGui.GetPos(,, &GuiWidth)
+    CoordMode("Mouse", "Screen")
+    MouseGetPos(&MouseX)
+    if(MouseX <= 1920) {
+        Screen := 1
+    } else if(MouseX <= 3840) {
+        Screen := 2
+    } else {
+        Screen := 3
+    }
+
+    MonitorGetWorkArea(Screen, &Left, &Top, &Right, &Bottom)
+    MyGui.GetPos(,, &GuiWidth)
             
-            TargetX := Right - GuiWidth - 10
-            TargetY := Top + 10
+    TargetX := Right - GuiWidth - 10
+    TargetY := Top + 10
             
-            MyGui.Show("x" . TargetX . " y" . TargetY)
-            break
-        }
-}
+    MyGui.Show("x" . TargetX . " y" . TargetY)
 }
