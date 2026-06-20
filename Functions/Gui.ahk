@@ -32,7 +32,7 @@ RunGui() {
     MouseGetPos(&MouseX, &MouseY)
     Loop MonitorGetCount() {
         MonitorGetWorkArea(A_Index, &Left, &Top, &Right, &Bottom)
-        if (MouseX >= Left && MouseX <= Right && MouseY >= Top && MouseY <= Bottom) {
+        if (MouseX >= Left && MouseX <= Right) {
             MyGui.GetPos(,, &GuiWidth)
             
             TargetX := Right - GuiWidth - 10
