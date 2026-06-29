@@ -7,7 +7,7 @@ MIDI := MIDIv2()
 
 midiSetup() {
     midiDevices := MIDI.GetMidiOutDevices()
-    if (midiDevices.Length <= 0) {
+    if (midiDevices.Length <= 2) {
         return
     }
     MIDI.OpenMidiIn(1)
