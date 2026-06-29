@@ -2,21 +2,21 @@
 
 subplot() {
     var_n := InputBox("Anzahl der Plots:").Value
-    xlabel := InputBox("Bezeichnung der X-Achse").Value
-    ylabel := InputBox("Bezeichnung der Y-Achse").Value
-
-    count := 1
 
     WinActivate(".m")
 
     loop var_n {
-        Send "subplot(" var_n ", 1, " count "){Enter}"
+        xlabel := InputBox("Bezeichnung der X-Achse").Value
+        ylabel := InputBox("Bezeichnung der Y-Achse").Value
+        title := InputBox("Titel des Plots").Value
+        Send "subplot(" var_n ", 1, " A_Index "){Enter}"
         Send "{Tab}hold on;{Enter}"
         Send "grid on;{Enter}"
         Send "fplot(){Enter}"
         Send 'xlabel("' xlabel '");{Enter}'
-        Send 'xlabel("' ylabel '");{Enter}'
+        Send 'ylabel("' ylabel '");{Enter}'
+        Send 'title("' title '")'
+        Send 'hold off'
         Send "+{Tab}"
-        count := count + 1
     }
 }

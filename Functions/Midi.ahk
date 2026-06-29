@@ -5,6 +5,21 @@
 #Include ../Lib\MIDIv2.ahk
 MIDI := MIDIv2()
 
+midiCheck() {
+midiDevices := MIDI.GetMidiOutDevices()
+if (midiDevices.Length = 0) {
+    return
+}
+    midiSetup()
+} 
+
+midiSetup() {
+    MIDI.OpenMidiIn(1)
+    MIDI.OpenMidiOut(2)
+    MIDI.SendSysEx(SysExSetup)
+    LightingSetup()
+}
+
 Keys := [                                                   
     11, 12, 13, 14, 15, 16, 17, 18, 
     21, 22, 23, 24, 25, 26, 27, 28, 
@@ -67,12 +82,6 @@ OnKeyPress(note) {                          ; Animation to light up all Keys in 
     }
     
     Sleep(2000)
-
-    LightingSetup()
-}
-
-Setup() {
-    MIDI.SendSysEx(SysExSetup)
 
     LightingSetup()
 }

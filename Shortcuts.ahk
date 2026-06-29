@@ -12,9 +12,7 @@
 
 ; MIDI Setup
 MIDI := MIDIv2()
-MIDI.OpenMidiIn(1)
-MIDI.OpenMidiOut(2)
-Setup()
+midiSetup()
 
 SetCapsLockState "AlwaysOff"    ; disables CapsLock
 SetTitleMatchMode 2             ; window title can contain certain string inside title
