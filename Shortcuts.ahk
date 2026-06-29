@@ -12,7 +12,7 @@
 
 ; MIDI Setup
 MIDI := MIDIv2()
-midiCheck()
+midiSetup()
 
 SetCapsLockState "AlwaysOff"    ; disables CapsLock
 SetTitleMatchMode 2             ; window title can contain certain string inside title

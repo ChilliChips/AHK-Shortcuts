@@ -5,20 +5,16 @@
 #Include ../Lib\MIDIv2.ahk
 MIDI := MIDIv2()
 
-midiCheck() {
+midiSetup() {
 midiDevices := MIDI.GetMidiOutDevices()
 if (midiDevices.Length = 0) {
     return
 }
-    midiSetup()
-} 
-
-midiSetup() {
     MIDI.OpenMidiIn(1)
     MIDI.OpenMidiOut(2)
     MIDI.SendSysEx(SysExSetup)
     LightingSetup()
-}
+} 
 
 Keys := [                                                   
     11, 12, 13, 14, 15, 16, 17, 18, 
