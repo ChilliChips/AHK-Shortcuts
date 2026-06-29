@@ -6,10 +6,10 @@
 MIDI := MIDIv2()
 
 midiSetup() {
-midiDevices := MIDI.GetMidiOutDevices()
-if (midiDevices.Length = 0) {
-    return
-}
+    midiDevices := MIDI.GetMidiOutDevices()
+    if (midiDevices.Length <= 0) {
+        return
+    }
     MIDI.OpenMidiIn(1)
     MIDI.OpenMidiOut(2)
     MIDI.SendSysEx(SysExSetup)
