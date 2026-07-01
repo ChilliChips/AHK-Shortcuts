@@ -15,7 +15,7 @@ subplot() {
         Send "fplot(){Enter}"
         Send 'xlabel("' xlabel '");{Enter}'
         Send 'ylabel("' ylabel '");{Enter}'
-        Send 'title("' title '")'
+        Send 'title("' title '");{Enter}'
         Send 'hold off'
         Send "+{Tab}"
     }
