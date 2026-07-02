@@ -146,7 +146,7 @@ SetTitleMatchMode 2             ; window title can contain certain string inside
     }
 
     AppsKey:: {
-        RunGui()          ; Opens GUI with Hotkey Descriptions
+        RunGui(MyGui)          ; Opens GUI with Hotkey Descriptions
     }
 
     +AppsKey:: {

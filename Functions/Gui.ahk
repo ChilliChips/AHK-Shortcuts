@@ -27,8 +27,8 @@ MatlabKeyList.ModifyCol(1, "Auto")
 MatlabKeyList.ModifyCol(2, "Auto")
 
 
-RunGui() {
-    MyGui.Show("Hide")
+RunGui(guiInput) {
+    guiInput.Show("Hide")
     CoordMode("Mouse", "Screen")
     MouseGetPos(&MouseX)
     
@@ -40,10 +40,10 @@ RunGui() {
         }
     }
 
-    MyGui.GetPos(,, &GuiWidth)
+    guiInput.GetPos(,, &GuiWidth)
             
     TargetX := Right - GuiWidth - 10
     TargetY := Top + 10
             
-    MyGui.Show("x" . TargetX . " y" . TargetY)
+    guiInput.Show("x" . TargetX . " y" . TargetY)
 }
