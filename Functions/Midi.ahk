@@ -35,11 +35,11 @@ Keys := [
 ; ["unbound",   "unbound",  "unbound",  "unbound",  "unbound",  "unbound",  "unbound",  "unbound",]
 ; ["Moodle",    "Hda Mail", "My.h-da",  "unbound",  "unbound",  "unbound",  "DimmDown", "DimmUp" ,]
 ; ["Disney+",   "Prime",    "Netflix",  "unbound",  "unbound",  "unbound",  "unbound",  "AllOn  ",]
-; ["Youtube",   "Twitch",   "Spotify",  "unbound",  "unbound",  "unbound",  "unbound",  "PadOff"  ]
+; ["Youtube",   "Twitch",   "Spotify",  "Mute TV",  "Mute-In",  "unbound",  "unbound",  "PadOff"  ]
 
 
 Colors :=  [                                                ; Custom Colors from Color Palette for 8x8 Key Matrix
-    72, 49, 75, 11, 00, 00, 00, 00,
+    72, 49, 75, 11, 10, 00, 00, 00,
     41, 67,  6, 00, 00, 00, 00, 21,
      9, 112, 3, 00, 00, 00,  1,  3,
     00, 00, 00, 00, 00, 00, 00, 00,

@@ -179,6 +179,10 @@ MidiInNoteOn14(midiEvent) {
     SoundSetMute(-1, , "Eingang (Realtek(R) Audio)")
 }
 
+MidiInNoteOn15(midiEvent) {
+    SoundSetMute(-1, , "Mikrofon (Realtek(R) Audio)")
+}
+
 MidiInNoteOn18(midiEvent) {             ; Launchpad Lights off
     PadOff()
 }
